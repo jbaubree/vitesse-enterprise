@@ -14,6 +14,7 @@ declare module 'vue' {
     CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Footer: typeof import('./components/TheFooter.vue')['default']
     README: typeof import('./core/components/README.md')['default']
+    TheCounter: typeof import('./core/components/TheCounter.vue')['default']
     TheFooter: typeof import('./core/components/TheFooter.vue')['default']
   }
 }

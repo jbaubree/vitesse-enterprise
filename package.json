@@ -23,13 +23,15 @@
     "preview": "vite preview --port 4000",
     "preview:https": "serve dist",
     "preview:test": "start-server-and-test preview http://localhost:4000",
-    "test": "cypress open",
-    "test:e2e": "cypress open",
+    "test": "run-s test:unit test:components test:e2e",
+    "test:unit": "vitest",
     "test:components": "cypress open-ct",
-    "test:ci:e2e": "cypress run --headless",
-    "test:ci:e2e:ss": "pnpm preview:test 'cypress run'",
+    "test:e2e": "cypress open",
+    "test:ci": "run-s test:ci:*",
+    "test:ci:unit": "vitest",
     "test:ci:components": "cypress run-ct",
-    "test:ci": "run-s test:ci:*"
+    "test:ci:e2e": "pnpm preview:test 'cypress run'",
+    "test:ci:e2e:headless": "cypress run --headless"
   },
   "dependencies": {
     "@pinia/testing": "^0.0.9",
@@ -106,6 +108,7 @@
     "vite-plugin-vue-layouts": "^0.6.0",
     "vite-plugin-windicss": "^1.5.1",
     "vite-ssg": "^0.17.2",
+    "vitest": "^0.5.4",
     "vue-tsc": "^0.31.1"
   },
   "engines": {

@@ -55,6 +55,9 @@ jobs:
       - name: Build Static Distribution
         run: pnpm build:prod:ssg
 
+      - name: Vitest Unit Test Runner
+        run: pnpm run test:ci:unit
+
       - name: Cypress Component Test Runner
         run: pnpm test:ci:components
 

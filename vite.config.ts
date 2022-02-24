@@ -166,10 +166,15 @@ export default defineConfig({
 
   // https://github.com/vitest-dev/vitest
   test: {
-    include: ['tests/unit/**/*.test.ts'],
-    environment: 'jsdom',
+    clearMocks: true,
     deps: {
       inline: ['@vue', '@vueuse', 'vue-demi'],
+    },
+    environment: 'jsdom',
+    globals: true,
+    include: ['tests/unit/**/*.test.ts'],
+    transformMode: {
+      web: [/\.[jt]sx$/],
     },
   },
 })

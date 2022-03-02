@@ -1,12 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "types": ["cypress", "vitest/globals"]
+    "types": ["cypress", "vitest/globals"],
+    "paths": {
+      "@/*": ["../*"],
+      "~/*": ["../src/*"]
+    }
   },
   "exclude": [],
   "include": ["**/*.ts"],
-  "paths": {
-    "@/*": ["../*"],
-    "~/*": ["../src/*"]
-  }
 }

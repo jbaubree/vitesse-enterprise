@@ -2,8 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "baseUrl": "../",
-    "isolatedModules": false,
-    "types": ["cypress", "vitest/globals"]
+    "isolatedModules": false
   },
   "exclude": [],
   "include": ["**/*.ts", "**/*.spec.ts"]

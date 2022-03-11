@@ -50,7 +50,7 @@ jobs:
         run: pnpm lint
 
       - name: Vitest Unit Test Runner
-        run: pnpm run test:ci:unit
+        run: pnpm run test:unit:ci
 
       - name: Build Static Distribution
         run: pnpm build:prod:ssg

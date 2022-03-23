@@ -23,7 +23,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: actions/cache@v2
         with:
@@ -32,12 +32,12 @@ jobs:
           key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install pnpm
-        uses: pnpm/action-setup@v2.1.0
+        uses: pnpm/action-setup@v2.2.1
         with:
           version: latest
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/
@@ -49,9 +49,6 @@ jobs:
       - name: Static Analysis
         run: pnpm lint
 
-      - name: Build SPA Distribution
-        run: pnpm build:prod
-
       - name: Build Static Distribution
         run: pnpm build:prod:ssg
 
@@ -59,7 +56,7 @@ jobs:
         run: pnpm run test:ci:unit
 
       - name: Cypress Component Test Runner
-        run: pnpm test:ci:components
+        run: pnpm test:components:ci
 
       - name: Cypress End-to-End Test Runner
         run: pnpm test:ci:e2e

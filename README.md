@@ -1,24 +1,25 @@
 # Vitesse Enterprise Starter
 
-<p align='center'>
+<div align='center'>
   <img
     src='https://user-images.githubusercontent.com/11247099/111864893-a457fd00-899e-11eb-9f05-f4b88987541d.png'
     alt='Vitesse - Opinionated Vite starter template with rigorous linting'
     width='600'
   />
-</p>
+</div>
 
 <br>
 
-<p align='center'>
-  <a href="https://vitesse-enterprise.netlify.app/">Live Netlify demo</a>
+<div align='center'>
+  <h3>Demonstrations</h3>
+  <a href="https://vitesse-enterprise.netlify.app/">Live on Netlify</a>
   <br>
-  <a href="https://vitesse-enterprise.vercel.app/">Live Vercel demo</a>
+  <a href="https://vitesse-enterprise.vercel.app/">Live on Vercel</a>
   <br>
-  <a href="https://stackblitz.com/github/DaYePython/vitesse-enterprise?file=.stackblitzrc">
-    👉 Demo on StackBlitz
+  <a href="https://stackblitz.com/fork/github/FranciscoKloganB/vitesse-enterprise?file=.stackblitzrc">
+    Playground on Stackblitz
   </a>
-</p>
+</div>
 
 <br>
 
@@ -68,7 +69,7 @@
 - ⚙️ Component and E2E testing with [Cypress](https://cypress.io/), plus
 Unit Testing with [Vitest](https://github.com/vitest-dev/vitest).
 
-- 📤 [GitHub Actions](https://github.com/features/actions) and [GitLab CI (wip)](https://github.com/features/actions)
+- 📤 [GitHub Actions](https://github.com/features/actions)
 
 - ☁️ Deploy on [Netlify](https://www.netlify.com/), zero-config - See [Netlify Deployment](#deploy-on-netlify)
 - ☁️ Deploy on [Vercel](https://vercel.com/) - See [Vercel Deployment](#deploy-on-vercel)
@@ -102,6 +103,7 @@ Unit Testing with [Vitest](https://github.com/vitest-dev/vitest).
   - [`vite-plugin-vue-i18n`](https://github.com/intlify/vite-plugin-vue-i18n)
 - [`vueuse`](https://github.com/antfu/vueuse)
   - [`@vueuse/head`](https://github.com/vueuse/head)
+- [`vite-ssg-sitemap`](https://github.com/jbaubree/vite-ssg-sitemap)
 - [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components)
 - [`unplugin-auto-import`](https://github.com/antfu/unplugin-auto-import)
 
@@ -153,18 +155,13 @@ pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 
 When you use this template, try follow the checklist to update your info properly
 
-- Select your git repository of choice
-  - [ ] Using [GitHub](https://github.com)?
-    - Remove `.github/funding.yml` file which contains the funding info
-    - Remove `.gitlab` folder and `.gitlab-ci.yml` file
-  - [ ] Using [GitLab](https://gitlab.com)?
-    - Remove the `.github` folder
-  - Using neither? Perform both steps.
+- [ ] Remove `.github/funding.yml` file which contains the funding info
 - Remove `vercel.json` or `netlify.yml` depending on your deployment provider.
 - [ ] Rename `name` field in `package.json`
 - [ ] Rename `projectId` field in `cypress.json`
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the title in `App.vue`
+- [ ] Change the hostname in `vite.config.ts`
 - [ ] Change the favicon in `public`
 - [ ] Clean up the READMEs and remove routes
 - [ ] Bump project dependencies (e.g.: dependabot) - We update them on a
@@ -192,9 +189,7 @@ pnpm lint
 # Interactive test run
 pnpm test:components
 pnpm test:e2e
-# Headless ( can run both in one step with: pnpm test:ci )
-pnpm test:ci:components
-pnpm test:ci:e2e
+pnpm test:unit
 ```
 
 ### Build for production

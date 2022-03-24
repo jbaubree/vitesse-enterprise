@@ -23,16 +23,15 @@
     "preview": "vite preview --port 4000",
     "preview:ci": "start-server-and-test preview http://localhost:4000",
     "preview:https": "serve dist",
-    "preview:test": "start-server-and-test preview http://localhost:4000",
-    "test": "run-s test:unit test:components test:e2e",
-    "test:unit": "vitest",
+    "run:build": "run-s prebuild 'build:prod:spa' preview",
+    "run:test": "run-s 'test:unit:ci' 'test:components:ci' 'test:e2e:headless'",
     "test:components": "cypress open-ct",
+    "test:components:ci": "cypress run-ct",
     "test:e2e": "cypress open",
-    "test:ci": "run-s test:ci:*",
-    "test:ci:unit": "vitest --watch=false",
-    "test:ci:components": "cypress run-ct",
-    "test:ci:e2e": "pnpm preview:test 'cypress run'",
-    "test:ci:e2e:headless": "cypress run --headless"
+    "test:e2e:headless": "cypress run",
+    "test:e2e:ci": "npm run preview:ci 'cypress run'",
+    "test:unit": "vitest",
+    "test:unit:ci": "vitest --watch=false"
   },
   "dependencies": {
     "@pinia/testing": "^0.0.9",
@@ -46,7 +45,7 @@
     "vue": "^3.2.31",
     "vue-demi": "^0.12.1",
     "vue-i18n": "^9.1.9",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.14"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.18.9",
@@ -59,8 +58,8 @@
     "@types/markdown-it-link-attributes": "^3.0.1",
     "@types/node": "^17.0.21",
     "@types/nprogress": "^0.2.0",
-    "@vitejs/plugin-vue": "^2.2.2",
-    "@vue/test-utils": "^2.0.0-rc.17",
+    "@vitejs/plugin-vue": "^2.2.4",
+    "@vue/test-utils": "^2.0.0-rc.18",
     "critters": "^0.0.16",
     "cross-env": "^7.0.3",
     "cypress": "^9.5.1",

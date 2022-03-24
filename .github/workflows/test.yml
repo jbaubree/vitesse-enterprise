@@ -49,14 +49,18 @@ jobs:
       - name: Static Analysis
         run: pnpm lint
 
+      - name: Vitest Unit Test Runner
+        run: pnpm run test:unit:ci
+
       - name: Build Static Distribution
         run: pnpm build:prod:ssg
 
-      - name: Vitest Unit Test Runner
-        run: pnpm run test:ci:unit
+      # Need to test with SPA distribution due to Cypress flakiness ¯\_(ツ)_/¯
+      - name: Build SPA Distribution
+        run: pnpm prebuild && pnpm build:prod:spa
 
       - name: Cypress Component Test Runner
         run: pnpm test:components:ci
 
       - name: Cypress End-to-End Test Runner
-        run: pnpm test:ci:e2e
+        run: pnpm test:e2e:ci
